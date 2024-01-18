@@ -1,0 +1,31 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ff3366;
+}
+
+.content {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.gambar-pacar {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  text-align: justify;
+}

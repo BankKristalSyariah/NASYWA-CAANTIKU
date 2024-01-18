@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BUAT NASYWA CANTIK</title>
+    <script src="https://dekatutorial.github.io/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://dekatutorial.github.io/19gombal/scriptDT.js"></script>
+    <link rel="stylesheet" href="https://dekatutorial.github.io/19gombal/style.css" />
+  </head>
+  <body><div class="preload"><p>Tunggu Sebentar Sayang....</p></div>
+    <div class="content">
+      <button>KLIK DONG SAYANG MASA DI LIATIN TOK</button>
+    </div>
+    <script>
+
+      musik = "musik.mp3";
+
+      window.addEventListener("load", (event) => { var load = document.querySelector(".preload"); load.style = "opacity: 0; transition: .5s ease all;"; setTimeout(() => { load.style.display = "none"; }, 500); }); document.querySelector("button").addEventListener("click", start); var musikku = new Audio(musik); musikku.loop = true; popupku();
+      async function start() {
+        musikku.play();
+        formKu();
+        inputSayang = document.querySelectorAll("input")[0];
+        inputKangen = document.querySelectorAll("input")[1];
+        inputPesan = document.querySelectorAll("input")[2];
+        await dekatutorial.fire({
+
+          imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/akuadapertanyaan.gif",
+          title: "Nasywa Cantik❤",
+          text: "Aku Mau Tanya Nih Sama Kamu",
+
+        });
+        await dekatutorial.fire({
+
+          imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/jawabyangjujur.gif",
+          title: "Tapi Jawabnya Yang Jujur Ya Sayang",
+
+        });
+        await dekatutorial.fire({
+
+          imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/awasajakaloboong.gif",
+          title: "Jangan Boong yaa Sayang, Kalo Boong Nanti Di Gigit Choky",
+
+        });
+        sayangGak();
+      }
+
+      function sayangGak() {
+        dekatutorial
+          .fire({ showDenyButton: true,
+
+            imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/kamusayanggak.gif",
+            title: "Ayang Sayang Ngga Sama Aku?",
+            denyButtonText: "Gak Najiss!!",
+            confirmButtonText: "Sayang Bangett",
+            
+          })
+          .then((e) => {
+            if (e.isConfirmed) {
+              dekatutorial
+                .fire({
+
+                  imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/akujugasayang.gif",
+                  title: "Aku juga sayang Banget sama Nasywa❤",
+
+                })
+                .then(() => {
+                  seberapaSayang();
+                });
+            } else {
+              dekatutorial
+                .fire({ showDenyButton: true,
+
+                  imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/yakinihgasayang.gif",
+                  title: "Beneran Kamu Ngga Sayang Sama Aku?",
+                  denyButtonText: "Iyalah Pake Nanya!",
+                  confirmButtonText: "Sayang Dong, Tadi Kepencet",
+
+                })
+                .then((e) => {
+                  if (e.isConfirmed) {
+                    dekatutorial
+                      .fire({
+
+                        imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/akujugasayang.gif",
+                        title: "Gapapa Sayang, Kepencet Dikit Gangaruh Aku Juga Sayang Sama Nasywa❤",
+
+                      })
+                      .then(seberapaSayang);
+                  } else {
+                    dekatutorial
+                      .fire({
+
+                        imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/yaudah.gif",
+                        title: "Ya Udah deh Sedih Banget huhuhu:(",
+
+                      })
+                      .then(kangenGak);
+                  }
+                });
+            }
+          });
+      }
+
+      async function seberapaSayang() {
+        var { value: syg } = await dekatutorial.fire({
+
+          title: "Sayangnya Seberapa Emang?",
+          inputLabel: "Antara 1 - 100",
+
+          input: "range",
+          confirmButtonText: "Kirim",
+          inputValue: 50,
+          inputAttributes: {
+            min: 1,
+            max: 100,
+            step: 1,
+          },
+        });
+        inputSayang.setAttribute("value", syg + "%");
+        await dekatutorial
+          .fire({
+
+            imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/makasihyaudahsayang.gif",
+            title: "Makasih ya Nasywa ❤udah sayang sama aku  " + syg + "% LOVE U SAYANG",
+
+          })
+          .then(() => {
+            kangenGak();
+          });
+      }
+
+      async function kangenGak() {
+        await dekatutorial
+          .fire({ showDenyButton: true,
+
+            imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/kamukangengak.gif",
+            title: "Kamu kangen gak sama aku Sayang?",
+            denyButtonText: "Gaklah!!!",
+            confirmButtonText: "Kangen Donggg :(",
+            
+          })
+          .then((e) => {
+            if (e.isConfirmed) {
+              inputKangen.setAttribute("value", "Iya");
+              dekatutorial
+                .fire({
+
+                  imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/akujugakangen.gif",
+                  title: "Aku juga kangen Sayang, Ga Kuat LDR huhu",
+
+                })
+                .then(adaPesanGak);
+            } else {
+              dekatutorial
+                .fire({
+
+                  imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/jahatgakangen.gif",
+                  title: "Jahat banget ga kangen sama pacar sendiri Sedih T_T",
+
+                })
+                .then(adaPesanGak);
+            }
+          });
+      }
+
+      async function adaPesanGak() {
+        await dekatutorial.fire({
+
+          imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/terakhirdehsayang.gif",
+          title: "Terakhir deh sayang",
+          
+        });
+        await dekatutorial
+          .fire({ showDenyButton: true,
+
+            imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/adapesangak.gif",
+            title: "Kamu Lagi Ngapain Sayang?",
+            denyButtonText: "Kepoo Banget SI!",
+            confirmButtonText: "Ngelakuin Sesuatu nih",
+            
+          })
+          .then(async (e) => {
+            if (e.isConfirmed) {
+              var { value: pesan } = await dekatutorial.fire({
+
+                title: "Lagi Ngapain Tuh Sayang?, Ketik di Wa ya Sayang Nanti",
+                
+
+              });
+              if (pesan) {
+                inputPesan.setAttribute("value", pesan);
+              } else {
+                await dekatutorial.fire({
+
+                  imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/yaudahkalogaada.gif",
+                  title: "Ya udah kalo gajadi ",
+
+                });
+              }
+            } else {
+              await dekatutorial.fire({
+
+                imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/yaudahkalogaada.gif",
+                title: "Ya Udah Kalo Gitu Sayang maap",
+
+              });
+            }
+          });
+        kirim();
+        pesanAkhir();
+      }
+
+      async function pesanAkhir() {
+        await dekatutorial.fire({
+
+          imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/makasihudahjawab.gif",
+          title: "Makasih Udah Jawab Jujur Ya Sayang",
+
+        });
+        await dekatutorial.fire({
+
+          imageUrl: "https://dekatutorial.github.io/19gombal/stikerkuy/akujugasayang.gif",
+          title: "Mmwuaaach I LOVE U SAYANG",
+
+        });
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
